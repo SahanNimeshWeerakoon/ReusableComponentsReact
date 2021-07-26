@@ -1,4 +1,5 @@
 import './App.css';
+import CustomSelect from './components/CustomSelect';
 import FormInput from './components/FormInput';
 
 function App() {
@@ -7,9 +8,25 @@ function App() {
     console.log(val);
   }
 
+  const selectData = [
+    { id: 1, name: 'one' },
+    { id: 2, name: 'Two' },
+    { id: 3, name: 'Three' },
+    { id: 4, name: 'Four' },
+    { id: 5, name: 'Five' }
+  ];
+  const handleSelectChange = val => {
+    console.log({val});
+  }
+
   return (
     <div className="App">
-      <FormInput type="number" onChange={handleChange} />
+      <div>
+        <FormInput type="number" onChange={handleChange} />
+      </div>
+      <div>
+        <CustomSelect data={selectData} onSelectChange={handleSelectChange} />
+      </div>
     </div>
   );
 }

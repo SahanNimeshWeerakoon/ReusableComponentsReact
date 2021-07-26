@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 
-const FormInput = (props) => {
+const FormInput = props => {
 
     const [inputType] = useState(props.type);
-    const [inputValue, setInputValue] = useState('');
+    const [ inputValue, setInputValue ] = useState('');
 
-    handleChange = e => {
-        setInputValue(e.target.value);
+    const handleChange = e => {
+        const value = e.target.value;
 
-        if(props.onChange) props.onChange(inputValue);
+        setInputValue(value);
+
+        if(props.onChange) props.onChange(value);
     }
 
     return (
         <>
-            <input type={inputType} value={inputValue} onChange={handleChange} name="input-form" className="inputclass"  />
+            <input type={inputType} value={inputValue} onChange={handleChange} name="inputValue" />
         </>
     );
 }
+
+export default FormInput;
